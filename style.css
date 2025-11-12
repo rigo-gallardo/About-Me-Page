@@ -3,13 +3,20 @@
   --surface: #171a33;
   --muted: #9aa3b2;
   --text: #f5f7fb;
+  --text-secondary: hsl(218, 13%, 80%);
+  --bg-light: #f5f7fb;
   --accent: #66e3c4;
   --accent-2: #7aa2ff;
   --radius-xl: 1.25rem;
   --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --nav-height: 4rem;
+}
+.text-secondary {
+  color: var(--text-secondary) !important;
 }
 body {
-  background: radial-gradient(
+  background:
+    radial-gradient(
       1200px 800px at 10% 10%,
       rgba(122, 162, 255, 0.12),
       transparent 60%
@@ -22,22 +29,50 @@ body {
     var(--bg);
   color: var(--text);
   scroll-behavior: smooth;
+  margin-bottom: 100vh;
 }
 .navbar {
   background: rgba(15, 18, 38, 0.75);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
-.nav-link {
+.navbar-nav .nav-link {
   color: var(--muted);
+  &.active {
+    color: var(--muted);
+    font-weight: bold;
+  }
 }
 .nav-link:hover,
 .nav-link.active {
   color: var(--text);
 }
-
-.section {
-  padding: 6rem 0 4rem;
+.navbar-toggler {
+  background: var(--accent);
+}
+/*
+since the navbar is position fixed, add a top scroll-margin so the window will be 
+position below the navbar at each nav-link
+is
+*/
+#header,
+#home,
+#about,
+#skills,
+#projects,
+#facts,
+#experience,
+#contact {
+  scroll-margin: var(--nav-height) 0 0 0;
+}
+.home {
+  margin-top: 4rem;
+}
+h1 {
+  text-underline-offset: 0.2em;
+}
+.container {
+  padding: 0 1.5rem;
 }
 .card {
   background: linear-gradient(
@@ -76,7 +111,7 @@ body {
 .highlight {
   color: var(--accent);
 }
-.accent-underline {
+/* .accent-underline {
   position: relative;
 }
 .accent-underline::after {
@@ -88,6 +123,9 @@ body {
   width: 100px;
   background: linear-gradient(90deg, var(--accent), var(--accent-2));
   border-radius: 999px;
+} */
+.underline {
+  text-decoration: underline;
 }
 
 .btn-accent {
@@ -130,8 +168,8 @@ body {
   vertical-align: -0.125em;
 }
 
-@media (max-width: 576px) {
+/* @media (max-width: 576px) {
   .section {
     padding: 4.5rem 0 3rem;
   }
-}
+} */
